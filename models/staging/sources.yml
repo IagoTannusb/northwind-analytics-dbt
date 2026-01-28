@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: northwind
+    description: "Northwind PostgreSQL sample database"
+    database: northwind
+    schema: public
+    tables:
+      - name: categories
+      - name: customers
+      - name: employees
+      - name: employee_territories
+      - name: orders
+      - name: order_details
+      - name: products
+      - name: region
+      - name: shippers
+      - name: suppliers
+      - name: territories
+      - name: us_states

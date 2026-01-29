@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Cleaned orders data from the Northwind source system."
+    columns:
+      - name: order_id
+        description: "Primary key of the order."
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_customers
+    description: "Standardized customer information."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_products
+    description: "Product master data including unit prices."
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        data_tests:
+          - unique
+          - not_null
+      - name: unit_price
+        description: "List price of the product at the time of order."
+        data_tests:
+          - not_null

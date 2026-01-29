@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: "Final fact table containing enriched sales data for BI analysis."
+    columns:
+      - name: order_id
+        description: "Reference to the original order ID."
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+
+      - name: net_revenue
+        description: "Total revenue after discounts (Quantity * Unit Price * (1 - Discount))."
+        data_tests:
+          - not_null
+          
+      - name: customer_name
+        description: "Company name of the customer who placed the order."
+        data_tests:
+          - not_null
+
+  - name: fct_daily_accumulated_sales
+    description: "Table containing daily sales metrics and running totals for trend analysis in Power BI."
+    columns:
+      - name: order_date
+        description: "The specific date of the sales."
+        data_tests:
+          - not_null
+          - unique
+      - name: total_accumulated_orders
+        description: "Running total of distinct orders up to this date."
+        data_tests:
+          - not_null
+      - name: total_accumulated_revenue
+        description: "Running total of net revenue up to this date."
+        data_tests:
+          - not_null

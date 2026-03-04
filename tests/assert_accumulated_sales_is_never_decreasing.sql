@@ -7,7 +7,6 @@ with validation as (
         lag(total_accumulated_orders) over (order by order_date) as previous_total
     from {{ ref('fct_daily_accumulated_sales') }}
 )
-
 select *
 from validation
 where total_accumulated_orders < previous_total

@@ -1,4 +1,3 @@
--- A receita acumulada deve ser sempre maior ou igual à do dia anterior.
 with validation as (
     select
         order_date,

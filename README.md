@@ -76,7 +76,7 @@ A confiabilidade é o foco deste projeto. Foi implementado Testes Singulares par
 
 O projeto inclui tambéem um script teste_falha.py que injeta dados corrompidos intencionalmente no banco para validar a eficácia dos alertas do dbt.
     ```bash
-    uv run python chaos_script.py
+    uv run python teste_falha.py
     uv run dbt test # Verificar os alertas vermelhos
     ```
 ## Documentação Automática do dbt  
